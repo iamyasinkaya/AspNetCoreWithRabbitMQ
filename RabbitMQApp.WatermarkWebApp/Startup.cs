@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using RabbitMQ.Client;
 using RabbitMQApp.WatermarkWebApp.Data;
 using RabbitMQApp.WatermarkWebApp.Services;
+using RabbitMQApp.WatermarkWebApp.Services.Publishers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,7 @@ namespace RabbitMQApp.WatermarkWebApp
                 Uri = new Uri(Configuration.GetConnectionString("RabbitMQ"))
             });
             services.AddSingleton<RabbitMqClientService>();
+            services.AddSingleton<RabbitMQPublisher>();
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(opt => {
                 opt.UseInMemoryDatabase(databaseName: "productdb");

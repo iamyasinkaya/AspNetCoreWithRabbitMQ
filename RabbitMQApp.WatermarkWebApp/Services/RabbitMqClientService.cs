@@ -5,21 +5,21 @@ using System;
 
 namespace RabbitMQApp.WatermarkWebApp.Services
 {
-    public class RabbitMqClientService : IDisposable
+    public class RabbitMQClientService : IDisposable
     {
         private readonly ConnectionFactory _connectionFactory;
         private IConnection _connection;
         private IModel _channel;
-        private static string ExchangeName = "ImageDirectExchange";
-        private static string RoutingWatermark = "watermark-route-image";
+        public static string ExchangeName = "ImageDirectExchange";
+        public static string RoutingWatermark = "watermark-route-image";
         public static string QueueName = "queue-watermark-image";
-        private readonly ILogger<RabbitMqClientService> _logger;
+        private readonly ILogger<RabbitMQClientService> _logger;
 
-        public RabbitMqClientService(ConnectionFactory connectionFactory, ILogger<RabbitMqClientService> logger)
+        public RabbitMQClientService(ConnectionFactory connectionFactory, ILogger<RabbitMQClientService> logger)
         {
             _connectionFactory = connectionFactory;
             _logger = logger;
-            Connect();
+
         }
 
         public IModel Connect()
