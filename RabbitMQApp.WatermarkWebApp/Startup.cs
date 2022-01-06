@@ -5,7 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RabbitMQ.Client;
 using RabbitMQApp.WatermarkWebApp.Data;
+using RabbitMQApp.WatermarkWebApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +27,11 @@ namespace RabbitMQApp.WatermarkWebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton(sp => new ConnectionFactory()
+            {
+                Uri = new Uri(Configuration.GetConnectionString("RabbitMQ"))
+            });
+            services.AddSingleton<RabbitMqClientService>();
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(opt => {
                 opt.UseInMemoryDatabase(databaseName: "productdb");
