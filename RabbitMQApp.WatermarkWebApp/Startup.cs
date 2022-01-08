@@ -32,7 +32,7 @@ namespace RabbitMQApp.WatermarkWebApp
             {
                 Uri = new Uri(Configuration.GetConnectionString("RabbitMQ"))
             });
-            services.AddSingleton<RabbitMqClientService>();
+            services.AddSingleton<RabbitMQClientService>();
             services.AddSingleton<RabbitMQPublisher>();
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(opt => {

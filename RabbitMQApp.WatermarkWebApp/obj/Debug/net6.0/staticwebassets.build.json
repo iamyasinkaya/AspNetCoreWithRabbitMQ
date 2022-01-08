@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7Mq/NUfpoC6WdfBWRvQP+JFhjrMHUuxTqoyLw219/4Q=",
+  "Hash": "waqypFpXmWI98agGuXbMyIJoIyjUl7buAltB0mQ202A=",
   "Source": "RabbitMQApp.WatermarkWebApp",
   "BasePath": "_content/RabbitMQApp.WatermarkWebApp",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\yasin\\Desktop\\RabbitMQApp\\RabbitMQApp.WatermarkWebApp\\wwwroot\\images\\f8be39ad-8353-48de-b053-cbfc0fff8c8a.jpg",
+      "SourceId": "RabbitMQApp.WatermarkWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\yasin\\Desktop\\RabbitMQApp\\RabbitMQApp.WatermarkWebApp\\wwwroot\\",
+      "BasePath": "_content/RabbitMQApp.WatermarkWebApp",
+      "RelativePath": "images/f8be39ad-8353-48de-b053-cbfc0fff8c8a.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\f8be39ad-8353-48de-b053-cbfc0fff8c8a.jpg"
     },
     {
       "Identity": "C:\\Users\\yasin\\Desktop\\RabbitMQApp\\RabbitMQApp.WatermarkWebApp\\wwwroot\\js\\site.js",
