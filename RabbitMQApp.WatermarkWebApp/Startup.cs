@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RabbitMQ.Client;
+using RabbitMQApp.WatermarkWebApp.BackgroundServices;
 using RabbitMQApp.WatermarkWebApp.Data;
 using RabbitMQApp.WatermarkWebApp.Services;
 using RabbitMQApp.WatermarkWebApp.Services.Publishers;
@@ -34,6 +35,7 @@ namespace RabbitMQApp.WatermarkWebApp
             });
             services.AddSingleton<RabbitMQClientService>();
             services.AddSingleton<RabbitMQPublisher>();
+            services.AddHostedService<ImageWatermarkProcessBackgroundService>();
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(opt => {
                 opt.UseInMemoryDatabase(databaseName: "productdb");
