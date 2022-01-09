@@ -64,22 +64,28 @@ namespace RabbitMQApp.WatermarkWebApp.Controllers
         {
             if (!ModelState.IsValid) return View(product);
 
+
             if (imageFile is { Length: > 0 })
             {
-                var randomImageName = Guid.NewGuid() +
-                    Path.GetExtension(imageFile.FileName);
+                var randomImageName = Guid.NewGuid() + Path.GetExtension(imageFile.FileName);
+
 
                 var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", randomImageName);
 
-                await using FileStream stream = new(path: path, FileMode.Create);
+
+                await using FileStream stream = new(path, FileMode.Create);
+
 
                 await imageFile.CopyToAsync(stream);
 
-                _rabbitMQPublisher.Publish(new ProductImageCreatedEvent
-                { Image = randomImageName });
+
+                _rabbitMQPublisher.Publish(new ProductImageCreatedEvent() { Image = randomImageName });
 
                 product.ImageUrl = randomImageName;
             }
+
+
+
 
             _context.Add(product);
             await _context.SaveChangesAsync();
